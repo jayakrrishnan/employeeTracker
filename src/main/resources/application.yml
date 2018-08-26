@@ -1,0 +1,23 @@
+spring:
+  profiles.active: local
+  
+server:
+  servlet:
+    context-path: /technomak/employeeTracker
+  port: 8080 
+
+---
+spring:
+  profiles: local
+  db.session.enabled: true
+  datasource:
+    jdbc-url: jdbc:mysql://localhost:3306/technomak
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+        
