@@ -13,7 +13,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="summary-all_trades")
+@Table(name="summary_all_trades")
 public class TradeSummary {
 	@Id
 	@Column(name = "trades")

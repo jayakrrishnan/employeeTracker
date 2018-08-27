@@ -40,6 +40,8 @@ public interface IEmployeeTrackerHandler {
 	List<EmployeeTracker> fetchActiveEmployee();
 
 	Map<String, TradeSummary> saveSummary();
+	
+	Map<String, TradeSummary> createSummary();
 
 	Map<String, List<TradeSummaryPreviewMetaData>> getSummary();
 }

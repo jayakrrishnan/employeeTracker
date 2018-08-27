@@ -1,16 +1,12 @@
 /**
  * 
  */
-package com.technomak.employeetracker.entity;
+package com.technomak.employeetracker.common;
 
 import java.sql.Timestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -18,27 +14,21 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  * @author JaY
  *
  */
-@Entity
-@Table(name = "employee_transfer_record")
-public class EmployeeTransferRecord {
+public class EmployeeTransferRecordDTO {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "employee_transfer_record_id")
 	Integer empTransRecordId;
-	@Column(name = "emp_id")
+	@NotNull(message = "empId should not be null")
 	Integer empId;
-	@Column(name = "empName")
+	@NotEmpty(message = "empName should not be null")
 	String empName;
-	@Column(name = "designation")
+	@NotEmpty(message = "designation should not be null")
 	String designation;
-	@Column(name = "department")
+	@NotEmpty(message = "department should not be null")
 	String department;
-	@Column(name = "transferred_From")
+	@NotEmpty(message = "transferedFrom should not be null")
 	String transferedFrom;
-	@Column(name = "transferred_To")
+	@NotEmpty(message = "transferedTo should not be null")
 	String transferedTo;
-	@Column(name = "date_of_Transfer")
 	Timestamp dateOfTransfer;
 
 	/**
@@ -142,7 +132,7 @@ public class EmployeeTransferRecord {
 	/**
 	 * @return the dateOfTransfer
 	 */
-	@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ")
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
 	public Timestamp getDateOfTransfer() {
 		return dateOfTransfer;
 	}

@@ -1,16 +1,11 @@
 /**
  * 
  */
-package com.technomak.employeetracker.entity;
+package com.technomak.employeetracker.common;
 
 import java.sql.Timestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -18,40 +13,25 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  * @author JaY
  *
  */
-@Entity
-@Table(name = "master_list")
-public class EmployeeTracker {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "emp_id")
+public class EmployeeTrackerDTO {
 	Integer empId;
-	@Column(name = "emp_name")
+	@NotEmpty(message="empName should not be null")
 	String empName;
-	@Column(name = "designation")
+	@NotEmpty(message="designation should not be null")
 	String designation;
-	@Column(name = "department")
+	@NotEmpty(message="department should not be null")
 	String department;
-	@Column(name = "location")
+	@NotEmpty(message="location should not be null")
 	String location;
-	@Column(name = "current_prj")
 	String currentProject;
-	@Column(name = "next_prj")
 	String nextProject;
-	@Column(name = "loaded_upto")
 	Timestamp loadedUpto;
-	@Column(name = "skill")
 	String skill;
-	@Column(name = "week_no")
 	Integer weekNo;
-	@Column(name = "leave_status")
 	Integer leaveStatus;
-	@Column(name = "visa_expiry")
 	Timestamp visaExpiry;
-	@Column(name = "rating")
 	String rating;
-	@Column(name = "trade")
 	String trade;
-	@Column(name = "remarks")
 	String remark;
 
 	/**
@@ -155,7 +135,7 @@ public class EmployeeTracker {
 	/**
 	 * @return the loadedUpto
 	 */
-	@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ")
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
 	public Timestamp getLoadedUpto() {
 		return loadedUpto;
 	}
@@ -212,7 +192,7 @@ public class EmployeeTracker {
 	/**
 	 * @return the visaExpiry
 	 */
-	@JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ")
+	@JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ssZ")
 	public Timestamp getVisaExpiry() {
 		return visaExpiry;
 	}
