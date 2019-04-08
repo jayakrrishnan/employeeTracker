@@ -1,7 +1,7 @@
 # employeeTrackerService
 </br></br>
 #Requirements : </br> </br>
-  Java 10 </br>
+  Java 1.8+ </br>
   mvn 3.5.x or above
 </br></br>
 #Steps  </br>
